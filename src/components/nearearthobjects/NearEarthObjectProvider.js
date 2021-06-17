@@ -37,7 +37,7 @@ export const NearEarthObjectProvider = (props) => {
             .then(response => response.json())
     }
 
-    const updateNearEarthObject = nearearthobjects => {
+    const updateNearEarthObject = nearearthobject => {
         return fetch(`http://localhost:8000/nearearthobjects/${nearearthobject.id}`, {
             method: "PUT",
             headers: {
