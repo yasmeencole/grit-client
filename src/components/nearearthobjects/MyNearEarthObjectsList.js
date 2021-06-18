@@ -5,13 +5,13 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 
-export const NearEarthObjectList = (props) => {
-    const { nearEarthObjects, getNearEarthObjects } = useContext(NearEarthObjectContext)
+export const MyNearEarthObjectList = (props) => {
+    const { nearEarthObjects, getNearEarthObjects, getMyNearEarthObjects } = useContext(NearEarthObjectContext)
     const history = useHistory();
 
 
     useEffect(() => {
-        getNearEarthObjects()
+        getMyNearEarthObjects()
     }, [])
 
     return (
@@ -31,7 +31,6 @@ export const NearEarthObjectList = (props) => {
                     return <section key={`nearEarthObject--${nearEarthObject.id}`} className="nearEarthObject">
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={nearEarthObject.image} />
-                            {console.log(nearEarthObject.image)}
                             <Card.Body>
                                 <Card.Title>Name: {nearEarthObject.name}</Card.Title>
                                 {/* <Card.Text>

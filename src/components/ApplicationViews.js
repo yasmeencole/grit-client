@@ -4,6 +4,7 @@ import { NearEarthObjectProvider } from "./nearearthobjects/NearEarthObjectProvi
 import { NearEarthObjectList } from "./nearearthobjects/NearEarthObjectList"
 import { NearEarthObjectForm } from "./nearearthobjects/NearEarthObjectForm"
 import { NearEarthObjectDetail } from "./nearearthobjects/NearEarthObjectDetail"
+import { MyNearEarthObjectList } from "./nearearthobjects/MyNearEarthObjectsList"
 
 export const ApplicationViews = () => {
     return (
@@ -18,7 +19,7 @@ export const ApplicationViews = () => {
                     <NearEarthObjectList />
                 </Route>   
                 <Route exact path="/nearearthobjects">
-                    <NearEarthObjectList />
+                    <MyNearEarthObjectList />
                 </Route>
                 <Route exact path="/nearearthobjects/new">
                     <NearEarthObjectForm />

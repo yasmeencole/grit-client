@@ -16,6 +16,16 @@ export const NearEarthObjectProvider = (props) => {
             .then(setNearEarthObjects)
     }
 
+    const getMyNearEarthObjects = () => {
+        return fetch("http://localhost:8000/nearearthobjects?user=me", {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            }
+        })
+            .then(response => response.json())
+            .then(setNearEarthObjects)
+    }
+
     const createNearEarthObject = (nearEarthObject) => {
         return fetch("http://localhost:8000/nearearthobjects", {
             method: "POST",
@@ -59,7 +69,7 @@ export const NearEarthObjectProvider = (props) => {
         }
 
     return (
-        <NearEarthObjectContext.Provider value={{ nearEarthObjects, getNearEarthObjects, createNearEarthObject, getNearEarthObjectById, updateNearEarthObject, deleteNearEarthObject }} >
+        <NearEarthObjectContext.Provider value={{ nearEarthObjects, getNearEarthObjects, getMyNearEarthObjects, createNearEarthObject, getNearEarthObjectById, updateNearEarthObject, deleteNearEarthObject }} >
             { props.children }
         </NearEarthObjectContext.Provider>
     )

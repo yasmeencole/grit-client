@@ -1,12 +1,29 @@
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { NearEarthObjectContext } from "./NearEarthObjectProvider.js"
+import Axios from "axios"
+import { Image } from "cloudinary-react"
 
 
 export const NearEarthObjectForm = () => {
     const history = useHistory()
-    const { createNearEarthObject, getNearEarthObjectById, updateNearEarthObject } = useContext(NearEarthObjectContext)
+    const { nearEarthObjects, getNearEarthObjects, createNearEarthObject, updateNearEarthObject, getNearEarthObjectById } = useContext(NearEarthObjectContext)
     const {nearEarthObjectId} = useParams()
+
+    const [imageSelected, setImageSelected] = useState("")
+
+    const uploadImage = () => {
+        const formData = new FormData()
+        formData.append("file", imageSelected)
+        formData.append("upload_preset", "cbtcepdq")
+
+        Axios.post("https://api.cloudinary.com/v1_1/drtel723x/image/upload", formData)
+        .then((response) => {
+            console.log(response)
+        })
+    }
+
+
 
     /*
         Since the input fields are bound to the values of
@@ -24,6 +41,10 @@ export const NearEarthObjectForm = () => {
         orbiting_body: ""
     })
 
+    useEffect(() => {
+        // Get all existing neos from API
+        getNearEarthObjects()
+    }, [])
 
     // this use affect will only run if nearEarthOjectId changes
     useEffect(() => {
@@ -44,16 +65,21 @@ export const NearEarthObjectForm = () => {
     }
     }, [nearEarthObjectId])
 
-
     // const changeNeoState = (event, currentNearEarthObject, SetCurrentNearEarthObject) => {
     //     const newNeoState = { ...currentNearEarthObject }
     //     newNeoState = event.target.value
     //     SetCurrentNearEarthObject(newNeoState)
     // }
-
+    
     const changeNameState = (event) => {
         const newNeoState = { ...currentEvent }
         newNeoState.name = event.target.value
+        setCurrentEvent(newNeoState)
+    }
+
+    const changeNeoReferenceState = (event) => {
+        const newNeoState = { ...currentEvent }
+        newNeoState.neo_reference = event.target.value
         setCurrentEvent(newNeoState)
     }
 
@@ -107,11 +133,22 @@ export const NearEarthObjectForm = () => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="image">Image: </label>
-                        <input type="image" name="image" required autoFocus className="form-control"
-                            value={currentEvent.image}
-                            onChange={changeImageState}
+                        <label htmlFor="name">Neo Reference: </label>
+                        <input type="text" name="name" autoFocus className="form-control"
+                            value={currentEvent.neo_reference}
+                            onChange={changeNeoReferenceState}
                         />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="image">Image: </label>
+                        <input type="file" name="image" required autoFocus className="form-control"
+                            value={currentEvent.image}
+                            onChange={(event)=> {setImageSelected(event.target.files)}}
+                        />
+                        <button onClick={uploadImage}>Upload Image</button>
+                        <Image cloudName="drtel723x" publicId=""/>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -171,7 +208,7 @@ export const NearEarthObjectForm = () => {
                         name: currentEvent.name,
                         image: currentEvent.image,
                         estimated_diameter: parseInt(currentEvent.estimated_diameter),
-                        is_potentially_hazardous: currentEvent.is_potentially_hazardous,
+                        is_potentially_hazardous: true,
                         close_approach_date: currentEvent.close_approach_date,
                         miles_per_hour: parseInt(currentEvent.miles_per_hour),
                         orbiting_body: currentEvent.orbiting_body
