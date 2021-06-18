@@ -1,26 +1,39 @@
 import React, { useContext, useEffect } from "react"
 import { NearEarthObjectContext } from "./NearEarthObjectProvider.js"
+import { useHistory } from "react-router-dom"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+
 
 export const NearEarthObjectList = (props) => {
     const { nearEarthObjects, getNearEarthObjects } = useContext(NearEarthObjectContext)
+    const history = useHistory();
+
 
     useEffect(() => {
         getNearEarthObjects()
     }, [])
 
     return (
+        
         <article className="nearEarthObjects">
             {
                 nearEarthObjects.map(nearEarthObject => {
                     return <section key={`nearEarthObject--${nearEarthObject.id}`} className="nearEarthObject">
-                        <div className="nearEarthObject__neoReference"> NEO Reference: {nearEarthObject.neo_reference}</div>
-                        <div className="nearEarthObject__name"> Name: {nearEarthObject.name}</div>
-                        <div className="nearEarthObject__image"> Image: {nearEarthObject.image}</div>
-                        <div className="nearEarthObject__estimatedDiameter"> Estimated Diameter: {nearEarthObject.estimated_diameter}</div>
-                        <div className="nearEarthObject__isPotentiallyHazardous}"> Potentially Hazardous: {nearEarthObject.is_potentially_hazardous}</div>
-                        <div className="nearEarthObject__closeApproachDate"> Close Approach Date: {nearEarthObject.close_approach_date}</div>
-                        <div className="nearEarthObject__milesPerHour"> Miles Per Hour: {nearEarthObject.miles_per_hour}</div>
-                        <div className="nearEarthObject__orbitingBody"> Orbiting Body: {nearEarthObject.orbiting_body}</div>
+                        <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Body>
+    <Card.Title>Name: {nearEarthObject.name}</Card.Title>
+    {/* <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text> */}
+    {/* <Button variant="primary">Go somewhere</Button> */}
+    <Button className="food__newFoodButton"onClick={() => { history.push("/nearearthobjects/:nearearthobjectId/detail") }}>NEO Detail</Button>
+
+  </Card.Body>
+</Card>
+
                     </section>
 
                 })
@@ -28,3 +41,4 @@ export const NearEarthObjectList = (props) => {
         </article>
     )
 }
+

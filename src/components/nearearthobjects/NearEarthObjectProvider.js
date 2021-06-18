@@ -48,10 +48,18 @@ export const NearEarthObjectProvider = (props) => {
         })
             .then(getNearEarthObjects)
         }
-    
+        const deleteNearEarthObject = nearEarthObjectId => {
+            return fetch(`http://localhost:8000/nearearthobjects/${ nearEarthObjectId }`, {
+                method: "DELETE",
+                headers:{
+                    "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                }
+            })
+                .then(getNearEarthObjects)
+        }
 
     return (
-        <NearEarthObjectContext.Provider value={{ nearEarthObjects, getNearEarthObjects, createNearEarthObject, getNearEarthObjectById, updateNearEarthObject }} >
+        <NearEarthObjectContext.Provider value={{ nearEarthObjects, getNearEarthObjects, createNearEarthObject, getNearEarthObjectById, updateNearEarthObject, deleteNearEarthObject }} >
             { props.children }
         </NearEarthObjectContext.Provider>
     )

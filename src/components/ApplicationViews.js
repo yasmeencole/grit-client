@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import { NearEarthObjectProvider } from "./nearearthobjects/NearEarthObjectProvider"
 import { NearEarthObjectList } from "./nearearthobjects/NearEarthObjectList"
 import { NearEarthObjectForm } from "./nearearthobjects/NearEarthObjectForm"
-
+import { NearEarthObjectDetail } from "./nearearthobjects/NearEarthObjectDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -23,9 +23,12 @@ export const ApplicationViews = () => {
                 <Route exact path="/nearearthobjects/new">
                     <NearEarthObjectForm />
                 </Route> 
+                <Route exact path="/nearearthobjects/:nearearthobjectId/detail">
+                    <NearEarthObjectDetail />
+                </Route>
                 <Route exact path="/nearearthobjects/:nearearthobjectId/update">
                     <NearEarthObjectForm />
-                </Route>    
+                </Route> 
             </NearEarthObjectProvider>
     </>
     )
