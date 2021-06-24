@@ -53,7 +53,7 @@ export const NearEarthObjectDetail = (props) => {
                                 <div className="nearEarthObject__neoReference"> NEO Reference: {nearEarthObject.neo_reference}</div>
                                 {/* <div className="nearEarthObject__image"> Image: {nearEarthObject.image}</div> */}
                                 <div className="nearEarthObject__estimatedDiameter"> Estimated Diameter: {nearEarthObject.estimated_diameter}</div>
-                                <div className="nearEarthObject__isPotentiallyHazardous}"> Potentially Hazardous: {nearEarthObject.is_potentially_hazardous}</div>
+                                <div className="nearEarthObject__isPotentiallyHazardous}"> Potentially Hazardous: {nearEarthObject?.is_potentially_hazardous}</div>
                                 <div className="nearEarthObject__closeApproachDate"> Close Approach Date: {nearEarthObject.close_approach_date}</div>
                                 <div className="nearEarthObject__milesPerHour"> Miles Per Hour: {nearEarthObject.miles_per_hour}</div>
                                 <div className="nearEarthObject__orbitingBody"> Orbiting Body: {nearEarthObject.orbiting_body}</div>

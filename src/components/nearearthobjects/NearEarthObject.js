@@ -22,9 +22,9 @@ export const NearEarthObject = ({nearEarthObject}) => {
             <Card.Img className="card-img" variant="top" src={nearEarthObject?.image}></Card.Img>
             {console.log(nearEarthObject)}
             <Card.Body>
-                <Card.Title>Name: {nearEarthObject?.name}</Card.Title>
+                <Card.Title> {nearEarthObject?.name}</Card.Title>
                 <Card.Text>
-                {nearEarthObject?.name}
+                {/* {nearEarthObject?.name} */}
                 </Card.Text>
                 {/* <Button variant="primary">Go somewhere</Button> */}
                 {/* <Button className="nearEarth__detailButton"onClick={() => { history.push("/nearearthobjects/detail/${}") }}>NEO Detail</Button> */}

@@ -21,12 +21,12 @@ export const MyNearEarthObjectList = (props) => {
             <header className="nearEarthObjects__header">
             <h1>Near Earth Objects</h1>
         </header>
-        <button className="btn btn-2 btn-sep icon-create"
+        <Button className="btn btn-2 btn-sep icon-create"
             onClick={() => {
                 history.push({ pathname: "/nearearthobjects/new" })
             }}
             >Create New Near Earth Object
-        </button>
+        </Button>
         <article className="nearEarthObjects">
             {
                 nearEarthObjects.map(nearEarthObject => {

@@ -164,7 +164,7 @@ export const NearEarthObjectForm = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="is_potentially_hazardous">Potentially Dangerous </label>
-                        <input type="checkbox" name="is_potentially_hazardous" required autoFocus className="form-control"
+                        <input type="text" name="is_potentially_hazardous" required autoFocus className="form-control"
                             value={currentEvent.is_potentially_hazardous}
                             onChange={changeHazardousState}
                         />
