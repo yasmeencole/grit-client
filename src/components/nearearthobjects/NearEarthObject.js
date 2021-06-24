@@ -18,8 +18,8 @@ export const NearEarthObject = ({nearEarthObject}) => {
     return (
         <>
         <article className="nearEarthObjects">
-            <Card style={{ width: '18rem' }}>
-            <Card.Img className="card-img" variant="top" src={nearEarthObject?.image}></Card.Img>
+            <Card style={{ width: '20rem' }}>
+            <Card.Img className="card-img" variant="top" src={nearEarthObject?.image} style={{ width: '20rem', height:'17rem' }}></Card.Img>
             {console.log(nearEarthObject)}
             <Card.Body>
                 <Card.Title> {nearEarthObject?.name}</Card.Title>
@@ -29,7 +29,7 @@ export const NearEarthObject = ({nearEarthObject}) => {
                 {/* <Button variant="primary">Go somewhere</Button> */}
                 {/* <Button className="nearEarth__detailButton"onClick={() => { history.push("/nearearthobjects/detail/${}") }}>NEO Detail</Button> */}
                 <Link to={`/nearearthobjects/detail/${nearEarthObject?.id}`}>
-                    <Button>
+                    <Button className="btn btn-warning" >
                         Details
                     </Button>
                 </Link>

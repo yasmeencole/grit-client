@@ -21,7 +21,7 @@ export const MyNearEarthObjectList = (props) => {
             <header className="nearEarthObjects__header">
             <h1>Near Earth Objects</h1>
         </header>
-        <Button className="btn btn-2 btn-sep icon-create"
+        <Button className="btn btn-warning" 
             onClick={() => {
                 history.push({ pathname: "/nearearthobjects/new" })
             }}
@@ -42,7 +42,7 @@ export const MyNearEarthObjectList = (props) => {
                                 {/* <Button variant="primary">Go somewhere</Button> */}
                                 {/* <Button className="food__newFoodButton"onClick={() => { history.push("/nearearthobjects/:nearearthobjectId/detail") }}>NEO Detail</Button> */}
                                 <Link to={`/nearearthobjects/detail/${nearEarthObject.id}`}>
-                                    <Button>
+                                    <Button className="btn btn-warning" >
                                         Details
                                     </Button>
                                 </Link>

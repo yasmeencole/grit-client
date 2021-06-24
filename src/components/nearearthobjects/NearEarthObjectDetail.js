@@ -43,7 +43,6 @@ export const NearEarthObjectDetail = (props) => {
     return (
         <article className="nearEarthObjects">
             {
-                // nearEarthObjects.map(nearEarthObject => {
                     <section key={`nearEarthObject--${nearEarthObject.id}`} className="nearEarthObject">
                         <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={nearEarthObject.image} />
@@ -53,21 +52,22 @@ export const NearEarthObjectDetail = (props) => {
                                 <div className="nearEarthObject__neoReference"> NEO Reference: {nearEarthObject.neo_reference}</div>
                                 {/* <div className="nearEarthObject__image"> Image: {nearEarthObject.image}</div> */}
                                 <div className="nearEarthObject__estimatedDiameter"> Estimated Diameter: {nearEarthObject.estimated_diameter}</div>
-                                <div className="nearEarthObject__isPotentiallyHazardous}"> Potentially Hazardous: {nearEarthObject?.is_potentially_hazardous}</div>
+                                <div className="nearEarthObject__isPotentiallyHazardous}"> Potentially Hazardous: {nearEarthObject?.is_potentially_hazardous?"Yes":"No"}</div>
                                 <div className="nearEarthObject__closeApproachDate"> Close Approach Date: {nearEarthObject.close_approach_date}</div>
                                 <div className="nearEarthObject__milesPerHour"> Miles Per Hour: {nearEarthObject.miles_per_hour}</div>
                                 <div className="nearEarthObject__orbitingBody"> Orbiting Body: {nearEarthObject.orbiting_body}</div>
                             </Card.Text>
-                            {/* <Button variant="primary">Go somewhere</Button> */}
                         </Card.Body>
-        <div>
-         <Button className="nearEarthObjectDeleteButton" onClick={handleRelease}>Delete</Button>
+                        <div>
+            {localStorage.getItem("grit_user") == nearEarthObject.user_id ? 
+            <>
+            <Button className="btn btn-warning"  onClick={handleRelease}>Delete</Button>
 
-         {/* <br /> */}
 
-         {/* this is the edit button, when clicked it sends a put request that updates the neo */}
-         <Button className="nearEarthObjectEditButton" onClick={() => { history.push(`/nearearthobjects/update/${nearEarthObject.id}`) }}>Edit</Button>
-         </div>
+            <Button className="btn btn-warning"  onClick={() => { history.push(`/nearearthobjects/update/${nearEarthObject.id}`) }}>Edit</Button>
+            </> : ""
+            }
+        </div>
                         </Card>
 
 
