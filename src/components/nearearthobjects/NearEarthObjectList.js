@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from "react"
 import { NearEarthObjectContext } from "./NearEarthObjectProvider.js"
 import { useHistory } from "react-router-dom"
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import {NearEarthObject} from "./NearEarthObject"
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+import { Link } from "react-router-dom"
+
 
 
 export const NearEarthObjectList = (props) => {
@@ -13,7 +16,8 @@ export const NearEarthObjectList = (props) => {
     useEffect(() => {
         getNearEarthObjects()
     }, [])
-
+    
+    console.log(nearEarthObjects)
     return (
         <>
             <header className="nearEarthObjects__header">
@@ -23,30 +27,47 @@ export const NearEarthObjectList = (props) => {
             onClick={() => {
                 history.push({ pathname: "/nearearthobjects/new" })
             }}
-            >Register New Event
+            >Create New Near Earth Object
         </button>
-        <article className="nearEarthObjects">
-            {
-                nearEarthObjects.map(nearEarthObject => {
-                    return <section key={`nearEarthObject--${nearEarthObject.id}`} className="nearEarthObject">
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={nearEarthObject.image} />
-                            {console.log(nearEarthObject.image)}
-                            <Card.Body>
-                                <Card.Title>Name: {nearEarthObject.name}</Card.Title>
-                                {/* <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                                </Card.Text> */}
-                                {/* <Button variant="primary">Go somewhere</Button> */}
-                                <Button className="food__newFoodButton"onClick={() => { history.push("/nearearthobjects/:nearearthobjectId/detail") }}>NEO Detail</Button>
-                            </Card.Body>
-                            </Card>
-                    </section>
+        <div className="neo_list">
+            {/* <h1>My Events</h1>
 
-                })
-            }
-        </article>
+            <button onClick={() => history.push("/nearearthobjects/create")}>
+                Add Event
+            </button> */}
+
+            <div className="nearEarthObjects">
+                {nearEarthObjects.map(neo => {
+                    return <NearEarthObject key={neo.id} nearEarthObject={neo} />
+                })}
+            </div>
+        </div>
+        {/* <article className="nearEarthObjects">
+            { */}
+                {/* // nearEarthObjects.map(nearEarthObject => { */}
+                    {/* // return <section key={`nearEarthObject--${nearEarthObject.id}`} className="nearEarthObject"> */}
+                        {/* <Card style={{ width: '18rem' }}> */}
+                            {/* <Card.Img variant="top" src={nearEarthObject.image} /> */}
+                            {/* {console.log(nearEarthObject.image)} */}
+                            {/* <Card.Body> */}
+                                {/* <Card.Title>Name: {nearEarthObject.name}</Card.Title> */}
+                                {/* <Card.Text> */}
+                                {/* {nearEarthObject.name} */}
+                                {/* </Card.Text> */}
+                                {/* <Button variant="primary">Go somewhere</Button> */}
+                                {/* <Button className="nearEarth__detailButton"onClick={() => { history.push("/nearearthobjects/detail/${}") }}>NEO Detail</Button> */}
+                                {/* <Link to={`/nearearthobjects/detail/${nearEarthObject.id}`}>
+                                    <Button>
+                                        Details
+                                    </Button>
+                                </Link>
+                            </Card.Body> */}
+                            {/* </Card>
+                    </section> */}
+
+                {/* }) */}
+            {/* } */}
+        {/* </article> */}
         </>
     )
 }

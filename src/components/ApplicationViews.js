@@ -24,10 +24,10 @@ export const ApplicationViews = () => {
                 <Route exact path="/nearearthobjects/new">
                     <NearEarthObjectForm />
                 </Route> 
-                <Route exact path="/nearearthobjects/:nearearthobjectId/detail">
+                <Route exact path="/nearearthobjects/detail/:nearEarthObjectId(\d+)">
                     <NearEarthObjectDetail />
                 </Route>
-                <Route exact path="/nearearthobjects/:nearearthobjectId/update">
+                <Route exact path="/nearearthobjects/update/:nearEarthObjectId(\d+)">
                     <NearEarthObjectForm />
                 </Route> 
             </NearEarthObjectProvider>

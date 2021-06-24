@@ -3,6 +3,8 @@ import { NearEarthObjectContext } from "./NearEarthObjectProvider.js"
 import { useHistory } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom"
+
 
 
 export const MyNearEarthObjectList = (props) => {
@@ -23,7 +25,7 @@ export const MyNearEarthObjectList = (props) => {
             onClick={() => {
                 history.push({ pathname: "/nearearthobjects/new" })
             }}
-            >Register New Event
+            >Create New Near Earth Object
         </button>
         <article className="nearEarthObjects">
             {
@@ -38,7 +40,12 @@ export const MyNearEarthObjectList = (props) => {
                                 the card's content.
                                 </Card.Text> */}
                                 {/* <Button variant="primary">Go somewhere</Button> */}
-                                <Button className="food__newFoodButton"onClick={() => { history.push("/nearearthobjects/:nearearthobjectId/detail") }}>NEO Detail</Button>
+                                {/* <Button className="food__newFoodButton"onClick={() => { history.push("/nearearthobjects/:nearearthobjectId/detail") }}>NEO Detail</Button> */}
+                                <Link to={`/nearearthobjects/detail/${nearEarthObject.id}`}>
+                                    <Button>
+                                        Details
+                                    </Button>
+                                </Link>
                             </Card.Body>
                             </Card>
                     </section>

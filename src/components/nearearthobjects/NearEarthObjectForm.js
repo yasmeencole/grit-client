@@ -1,27 +1,28 @@
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { NearEarthObjectContext } from "./NearEarthObjectProvider.js"
-import Axios from "axios"
-import { Image } from "cloudinary-react"
+// import Axios from "axios"
+// import { Image } from "cloudinary-react"
 
 
 export const NearEarthObjectForm = () => {
     const history = useHistory()
     const { nearEarthObjects, getNearEarthObjects, createNearEarthObject, updateNearEarthObject, getNearEarthObjectById } = useContext(NearEarthObjectContext)
     const {nearEarthObjectId} = useParams()
+    console.log(nearEarthObjectId)
 
-    const [imageSelected, setImageSelected] = useState("")
+    // const [imageSelected, setImageSelected] = useState("")
 
-    const uploadImage = () => {
-        const formData = new FormData()
-        formData.append("file", imageSelected)
-        formData.append("upload_preset", "cbtcepdq")
+    // const uploadImage = () => {
+    //     const formData = new FormData()
+    //     formData.append("file", imageSelected)
+    //     formData.append("upload_preset", "cbtcepdq")
 
-        Axios.post("https://api.cloudinary.com/v1_1/drtel723x/image/upload", formData)
-        .then((response) => {
-            console.log(response)
-        })
-    }
+    //     Axios.post("https://api.cloudinary.com/v1_1/drtel723x/image/upload", formData)
+    //     .then((response) => {
+    //         console.log(response)
+    //     })
+    // }
 
 
 
@@ -143,12 +144,12 @@ export const NearEarthObjectForm = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="image">Image: </label>
-                        <input type="file" name="image" required autoFocus className="form-control"
+                        <input type="text" name="image" required autoFocus className="form-control"
                             value={currentEvent.image}
-                            onChange={(event)=> {setImageSelected(event.target.files)}}
+                            onChange={changeImageState}
                         />
-                        <button onClick={uploadImage}>Upload Image</button>
-                        <Image cloudName="drtel723x" publicId=""/>
+                        {/* <button onClick={uploadImage}>Upload Image</button> */}
+                        {/* <Image cloudName="drtel723x" publicId=""/> */}
                     </div>
                 </fieldset>
                 <fieldset>

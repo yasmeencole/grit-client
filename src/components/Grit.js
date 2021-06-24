@@ -4,6 +4,8 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 export const Grit = () => (
     <>
