@@ -8,3 +8,18 @@
     flex-basis: 20%;
     list-style-type: none;
 }
+
+.nav__links {
+    margin: 0.8em;
+}
+
+.lightNavBar {
+    text-align: justify;
+    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.astroImg {
+    height: 35px;
+}
