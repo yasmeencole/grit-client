@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Introduction
+Nashville Software School Cohort 46 Full Stack Capstone - Grit By Yasmeen Cole
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## The Purpose of Grit
+The main purpose of Grit application is to help users keep track of near earth object such as asteroids and meteorites that are in the orbital field of the Earth.
 
-In the project directory, you can run:
+This application will allow a logged in user to: 
+* document near Earth objects the user would like to track
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img width="1440" alt="gritimage" src="https://user-images.githubusercontent.com/72658735/127570468-0628f03b-d275-4fc5-aa7a-fcf68798e182.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+<img width="1440" alt="gritindividimg" src="https://user-images.githubusercontent.com/72658735/127571316-ee374e2c-5b6a-48f2-be3d-26d3d98fc757.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Entity Relationship Diagram 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Here is a link to Grit's ERD:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://dbdiagram.io/d/60b645c2b29a09603d177dd2
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img width="947" alt="Grit ERD" src="https://user-images.githubusercontent.com/72658735/127570490-db353fdb-38e1-4a2c-9103-31721d60bcce.png">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Figma Mockup
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Here is a link to Grit's Mockup on Figma:
 
-## Learn More
+https://www.figma.com/file/D1Ts1pAdfW8Hl6fOvvFXv2/Grit-Full-Stack?node-id=0%3A1
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="726" alt="gritmockup" src="https://user-images.githubusercontent.com/72658735/127571541-b82693c3-71a9-42f5-af36-4bf6111ebf06.png">
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img width="729" alt="gritindivmockup" src="https://user-images.githubusercontent.com/72658735/127571546-5576b12f-f04d-422a-a5b4-87694056c88a.png">
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Tech Stack
+* React JS
+* React Bootstrap
+* CSS
+* HTML
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Setting Up Grit
+To run Grit application:
 
-### Deployment
+```
+git clone git@github.com:yasmeencole/grit-server.git
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For Grit API:
 
-### `npm run build` fails to minify
+```
+git clone git@github.com:yasmeencole/grit-server.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link: https://github.com/yasmeencole/grit-server
